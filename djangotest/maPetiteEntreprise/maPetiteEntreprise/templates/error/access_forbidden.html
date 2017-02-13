@@ -1,0 +1,38 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+   <meta  charset="utf-8">
+	   <link rel="stylesheet" type="text/css" href="{% static 'maPetiteEntreprise/style.css' %}" />
+   <title>HOME racine</title>	
+</head>	
+<body>
+
+<nav>
+  {% if user.is_authenticated %}
+    <p class="connected navigation">
+      Connecté en tant que <b> <a href="{% url 'home' %}">{{ user.username }}</a> </b>
+    </p>
+    <ul class="navigation menu-deroulant">
+    <li><a href="{% url 'home' %}">Accueil</a></li>
+    <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+  </ul>
+  {% else %}
+  <p class="connected navigation">
+      Connectez vous : <b> <a href="{% url 'login' %}"><button>ICI</button></a> </b>
+    </p>
+  <ul class="navigation menu-deroulant">
+    <li><a href="{% url 'home' %}">Accueil</a></li>
+  </ul>
+  {% endif %}
+</nav>
+
+<h1 class="center">Dommage, accès interdit !</h1>
+<img class="main_img" src="{% static "maPetiteEntreprise/images/access_forbidden.gif" %}" alt="FORBIDDEN ACCESS" />
+
+  </div>
+  <div id="content">
+    {% block content %}{% endblock content %}
+  </div>
+</body>
+</html>

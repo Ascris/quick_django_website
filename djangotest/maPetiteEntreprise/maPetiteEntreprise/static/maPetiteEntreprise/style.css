@@ -1,0 +1,80 @@
+p {
+ color: red;
+}
+
+body {
+    background-color: lightblue;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+td, th{
+	text-align: center;
+	border: 1px solid black;
+	padding: 3px;
+}
+
+th{
+    background-color:#e1e1e1;
+    font-weight: bold;
+    cursor: default;
+}
+
+.menu-deroulant, .menu-deroulant ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.menu-deroulant {
+/* on centre le menu dans la page */
+    text-align: center;
+}
+.menu-deroulant li {
+/* on place les liens du menu horizontalement */
+    display: inline-block;
+}
+.menu-deroulant ul li {
+/* on enlève ce comportement pour les liens du sous menu */
+    display: inherit;
+}
+.menu-deroulant a {
+    display: block;
+}
+.menu-deroulant ul {
+    position: absolute;
+/* on cache les sous menus complètement sur la gauche */
+    left: -999em;
+    text-align: left;
+    z-index: 1000;
+}
+
+.menu-deroulant li:hover ul {
+/* Au survol des li du menu on replace les sous menus */
+    left: auto;
+	background-color: white;
+	border-bottom: 1px solid #ccc;
+}
+
+.wrapper { margin: 10px auto; width: 1200px; }
+.wrapper a, .navigation { text-decoration: none; color: #00628A; }
+.connected a:hover { text-decoration: underline; }
+.wrapper span.highlight { color: #00628A; }
+
+.top .connected { float : left; }
+.top ul.navigation { list-style: none; text-align: right; }
+.top .navigation li a { padding: 10px 15px; border-left: 1px solid #ccc; }
+.main_header p { text-align: center; font-family: 'Cambria', cursive; font-size: 24px; margin-bottom: 20px; font-weight: normal; }
+.main_header { text-align: center; }
+
+.center {
+  display: block;
+  text-align: center;
+}
+.main_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

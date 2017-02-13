@@ -1,0 +1,19 @@
+version: '2'
+services:
+  db:
+    image: mysql
+    environment:
+        MYSQL_DATABASE: monblog
+        MYSQL_USER: djangoadmin
+        MYSQL_PASSWORD: django
+        MYSQL_ROOT_PASSWORD: root
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

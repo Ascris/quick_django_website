@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} Liste produits {% endblock %}
+{% block page_title %} Liste des produits de l'entreprise {{ name }} {% endblock %}
+
+{% block content %}
+  <p> Voici la liste des produits vendus par l'entreprise : </p>
+    {% if mes_produits %}
+      <table>
+	  <tr> 
+	    <th>Nom</th>
+	    <th>Prix</th>
+	  </tr>
+	  {% for p in mes_produits %}
+	    <tr>
+	      <td>{{ p.nom }}</td>
+	      <td>{{ p.prix }}</td>
+	    </tr>
+	  {% endfor %}
+      </table>
+    {% endif %}
+{% endblock content %}
+

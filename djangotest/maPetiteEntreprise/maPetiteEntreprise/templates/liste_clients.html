@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} Liste de clients {% endblock %}
+{% block page_title %} Liste de clients {% endblock %}
+
+{% block content %}
+	<h1>Liste des clients</h1>
+	{% if liste_clients %}
+		<table>
+		  <tr> 
+		    <th>Nom</th>
+		    <th>Age</th>
+		    <th>Courriel</th>
+		  </tr>
+		  {% for c in liste_clients %}
+		    <tr>
+		<td>{{ c.nom }}</td>
+		<td>{{ c.age }}</td>
+		      <td>{{ c.courriel }}</td>
+		    </tr>
+		  {% endfor %}
+		</table>
+	{% endif %}
+{% endblock %}
+

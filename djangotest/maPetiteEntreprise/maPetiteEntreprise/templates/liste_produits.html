@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Liste de produits {% endblock %}
+{% block page_title %} Liste de produits {% endblock %}
+
+{% block content %}
+	<h2>Cette page va afficher la liste des produits disponibles</h2>
+
+	{% for produit in mes_produits %}
+		  <fieldset>
+		  <legend> Produit : {{ produit.nom }} </legend>
+		<p><b>Date creation:</b> {{ produit.date_creation }}</p>
+		<p><b>Prix: </b> {{ produit.prix }}</p>
+		  </fieldset>
+	{% endfor %}
+
+{% endblock content %}
+

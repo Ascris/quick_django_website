@@ -1,0 +1,46 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+   <meta  charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="{% static 'maPetiteEntreprise/style.css' %}" />	
+   <title>HOME racine</title>
+</head>	
+<body>
+
+<nav>
+  {% if user.is_authenticated %}
+    <p class="connected navigation">
+      Connecté en tant que <b> <a href="{% url 'home' %}">{{ user.username }}</a> </b>
+    </p>
+    <ul class="navigation menu-deroulant">
+    <li><a href="{% url 'home' %}">Accueil</a></li>
+    <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+  </ul>
+  {% else %}
+  <p class="connected navigation">
+      Connectez vous : <b> <a href="{% url 'login' %}"><button>ICI</button></a> </b>
+    </p>
+  <ul class="navigation menu-deroulant">
+    <li><a href="{% url 'home' %}">Accueil</a></li>
+  </ul>
+  {% endif %}
+</nav>
+
+<h1>This is the starting page of the project.</h1>
+Le parametre defini dans views.py est {{ parametre }}
+<div class="pages_menu">
+  <ul>
+    <li><a href="{% url 'liste_clients' %}">Liste des clients</a></li>
+    <li><a href="{% url 'liste_produits' %}">Liste des produits</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+    <li><a href="{% url 'credits' %}">Credits</a></li>
+    <li><a href="{% url 'recherche' %}">Recherche</a></li>
+  </ul>
+</div>
+
+   <div id="content">
+       {% block content %}{% endblock content %}
+   </div>
+</body>
+</html>
