@@ -8,5 +8,5 @@ class Client(models.Model):
     prenom= models.CharField(max_length=1024)
     age= models.IntegerField()
     courriel= models.EmailField()
-    date_inscription= models.DateTimeField()
+    date_inscription= models.DateTimeField(auto_now=True)
     produits= models.ManyToManyField(Produit)

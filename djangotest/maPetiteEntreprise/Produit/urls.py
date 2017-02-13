@@ -7,6 +7,5 @@ from Client import views
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^$','Client.views.home_client', name='home_client'),
-    url(r'^liste_produits/', 'Client.views.liste_produits_client', name='liste_produits_client'),
+    url(r'^$','Produit.views.home_produit', name='home_produit'),
 ]

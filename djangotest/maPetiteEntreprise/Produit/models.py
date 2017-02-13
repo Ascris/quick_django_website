@@ -5,6 +5,6 @@ from Societe.models import Societe
 
 class Produit(models.Model):
     nom= models.CharField(max_length=1024)
-    date_creation= models.DateTimeField()
+    date_creation= models.DateTimeField(auto_now=True)
     prix= models.IntegerField()
     societes= models.ManyToManyField(Societe)

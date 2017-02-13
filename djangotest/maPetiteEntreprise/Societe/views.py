@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.conf import settings
 
+from Societe.models import Societe
 from Produit.models import Produit
 
-def home(request):
+def home_societe(request):
     return render(request, 'home_societe.html')
 
 def ajout_produit(request):
@@ -12,6 +13,6 @@ def ajout_produit(request):
     p.societes.add(this)
 
 def liste_produits(request):
-    mes_produits= this.produits
+    mes_produits= Societe.produits.get(all)
     return render(request, 'liste_produits.html', {'mes_produits':mes_produits})
 
