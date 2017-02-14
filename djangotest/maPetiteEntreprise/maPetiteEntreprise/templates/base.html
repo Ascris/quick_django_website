@@ -19,6 +19,9 @@
 		  <li><a href="{% url 'logout' %}">Déconnexion</a></li>
 		</ul>
 		{% else %}
+                <p>
+		    Inscription : <b> <a href="{% url 'register' %}"><button>ICI</button></a> </b>
+		  </p>
 		<p class="connected navigation">
 		    Connectez vous : <b> <a href="{% url 'login' %}"><button>ICI</button></a> </b>
 		  </p>

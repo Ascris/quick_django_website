@@ -2,6 +2,11 @@ from django.shortcuts import render
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 
+from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import UserCreationForm
+from django.core.context_processors import csrf
+
 from Produit.models import Produit
 from Client.models import Client
 from Societe.models import Societe
@@ -9,6 +14,23 @@ from Societe.models import Societe
 def home(request):
     n=5
     return render(request, 'home.html', {'parametre':n})
+
+def register(request):
+     if request.method == 'POST':
+         form = UserCreationForm(request.POST)
+         if form.is_valid():
+             form.save()
+             return HttpResponseRedirect('/register/complete')
+     else:
+         form = UserCreationForm()
+     token = {}
+     token.update(csrf(request))
+     token['form'] = form
+     return render_to_response('registration/register.html', token)
+
+def registration_complete(request):
+    return render_to_response('registration/registration_complete.html')
+
 
 def contact(request):
     createur="etudiant"

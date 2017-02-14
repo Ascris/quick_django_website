@@ -20,6 +20,8 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^$','maPetiteEntreprise.views.home', name='home'),
+    url(r'^register/$','maPetiteEntreprise.views.register', name='register'),
+    url(r'^register/complete$','maPetiteEntreprise.views.registration_complete', name='registration_complete'),
     url(r'^login/$','django.contrib.auth.views.login', name='login'),
     url(r'^logout/$','django.contrib.auth.views.logout', name='logout'),
     url(r'^access_forbidden/$','maPetiteEntreprise.views.access_forbidden', name='access_forbidden'),
@@ -29,9 +31,6 @@ urlpatterns = [
     url(r'^client/', include('Client.urls')),
     url(r'^societe/', include('Societe.urls')),
     url(r'^produit/', include('Produit.urls')),
-    #url(r'^client/','Client.views.home_client', name='home_client'),
-    #url(r'^societe/','Societe.views.home', name='home_societe'),
-    #url(r'^produit/','Produit.views.home_produit', name='home_produit'),
     url(r'^liste_produits/','maPetiteEntreprise.views.liste_produits', name='liste_produits'),
     url(r'^archives/','maPetiteEntreprise.views.recherche_archives', name='recherche'),
     url(r'^credits/','maPetiteEntreprise.views.credits', name='credits'),

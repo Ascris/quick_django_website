@@ -9,4 +9,5 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^$','Client.views.home_client', name='home_client'),
     url(r'^liste_produits/', 'Client.views.liste_produits_client', name='liste_produits_client'),
+    url(r'^ajout_produit/', 'Client.views.ajout_produit_client', name='ajout_produit_client'),
 ]

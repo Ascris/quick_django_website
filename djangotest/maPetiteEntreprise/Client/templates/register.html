@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} Creation utilisateur {% endblock %}
+{% block page_title %} Creation d'un nouvel utilisateur {% endblock %}
+
+{% block content %}
+  <p> Creation d'un utilisateur - formulaire d'inscription ICI </p>
+    <form action="/accounts/register/" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Register" />
+    </form>
+{% endblock content %}
+
