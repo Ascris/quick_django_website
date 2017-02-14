@@ -1,11 +1,14 @@
 from django.shortcuts import render
+from django.shortcuts import render_to_response
+
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 
-from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from django.contrib.auth.forms import UserCreationForm
+
 from django.core.context_processors import csrf
+
+from maPetiteEntreprise.forms import UserCreateForm
 
 from Produit.models import Produit
 from Client.models import Client
@@ -16,13 +19,13 @@ def home(request):
     return render(request, 'home.html', {'parametre':n})
 
 def register(request):
-     if request.method == 'POST':
-         form = UserCreationForm(request.POST)
+     if request.method == 'POST':	
+         form = UserCreateForm(request.POST)
          if form.is_valid():
              form.save()
              return HttpResponseRedirect('/register/complete')
      else:
-         form = UserCreationForm()
+         form = UserCreateForm()
      token = {}
      token.update(csrf(request))
      token['form'] = form
@@ -30,7 +33,6 @@ def register(request):
 
 def registration_complete(request):
     return render_to_response('registration/registration_complete.html')
-
 
 def contact(request):
     createur="etudiant"
