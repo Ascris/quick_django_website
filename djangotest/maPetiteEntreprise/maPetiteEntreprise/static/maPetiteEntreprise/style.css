@@ -79,4 +79,26 @@ th{
  text-align: center;
 }
 
+.pages_menu {
+ display: block;
+}
 
+.menu_block {
+ text-align: left;
+}
+
+.panier {
+ text-align: right;
+}
+
+.ligne_produit {
+ display: inline-block;
+}
+
+.ligne_produit_description {
+ text-align: left;
+}
+
+.ligne_produit_achat {
+ text-align: right;
+}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} Panier {% endblock %}
+{% block page_title %} Mon panier {% endblock %}
+
+{% block panier %}{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>Produit</th>
+            <th>Quantite</th>
+            <th>Prix total</th>
+        </tr>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.product.nom }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price }}€</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <th>Nombre d'articles</th>
+            <td>{{ cart.count }}</td>
+        </tr>
+        <tr>
+            <th>COUT TOTAL</th>
+            <td>{{ cart.summary }}€</td>
+        </tr>
+        
+    </table>
+{% endblock content %}

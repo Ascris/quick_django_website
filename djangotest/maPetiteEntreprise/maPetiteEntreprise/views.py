@@ -14,6 +14,8 @@ from Produit.models import Produit
 from Client.models import Client
 from Societe.models import Societe
 
+from cart.cart import Cart
+
 def home(request):
     n=5
     return render(request, 'home.html', {'parametre':n})
@@ -57,3 +59,21 @@ def credits(request):
 
 def access_forbidden(request):
     return render(request, 'error/access_forbidden.html')
+
+#Cart functions
+@login_required
+def add_to_cart(request, product_id):
+    product = Produit.objects.get(id=product_id)
+    cart = Cart(request)
+    cart.add(product, product.prix)
+    return render(request, 'cart.html', dict(cart=Cart(request)))
+
+@login_required
+def remove_from_cart(request, product_id):
+    product = Produit.objects.get(id=product_id)
+    cart = Cart(request)
+    cart.remove(product)
+
+@login_required
+def get_cart(request):
+    return render(request, 'cart.html', dict(cart=Cart(request)))

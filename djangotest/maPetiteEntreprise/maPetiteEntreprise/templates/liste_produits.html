@@ -4,15 +4,16 @@
 {% block page_title %} Liste de produits {% endblock %}
 
 {% block content %}
-	<h2>Cette page va afficher la liste des produits disponibles</h2>
-
-	{% for produit in mes_produits %}
-		  <fieldset>
-		  <legend> Produit : {{ produit.nom }} </legend>
-		<p><b>Date creation:</b> {{ produit.date_creation }}</p>
-		<p><b>Prix: </b> {{ produit.prix }}</p>
-		  </fieldset>
-	{% endfor %}
-
+  <h2>Cette page va afficher la liste des produits disponibles</h2>
+    {% for produit in mes_produits %}
+      <div class="ligne_produit">
+        <fieldset class="ligne_produit_description">
+	  <legend> Produit : {{ produit.nom }} </legend>
+	  <p><b>Date creation:</b> {{ produit.date_creation }}</p>
+	  <p><b>Prix: </b> {{ produit.prix }}</p>
+	</fieldset>
+        <button class="ligne_produit_achat"><a href="{% url 'add_to_cart' produit.id %}">ACHETER</a></button>
+      </div>
+    {% endfor %}
 {% endblock content %}
 

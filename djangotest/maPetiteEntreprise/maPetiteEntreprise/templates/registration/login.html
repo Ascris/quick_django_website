@@ -1,4 +1,15 @@
-<h1>Se connecter</h1>
+{% extends "base.html" %}
+
+{% block title %} Connexion {% endblock %}
+{% block page_title %} Connexion d'un utilisateur {% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block pages_menu %}
+{% endblock %}
+
+{% block content %}
 
 {% if error %}
 <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
@@ -13,3 +24,6 @@ Vous êtes connecté, {{ user.username }} !
     <input type="submit" value="Se connecter" />
 </form>
 {% endif %}
+
+{% endblock content %}
+

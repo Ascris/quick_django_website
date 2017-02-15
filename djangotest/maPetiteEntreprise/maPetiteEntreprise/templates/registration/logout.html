@@ -1,3 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %} Deconnexion {% endblock %}
+{% block page_title %} Deconnexion d'un utilisateur {% endblock %}
+
+{% block content %}
+
 <h1>Page de deconnexion</h1>
 
 {% if error %}
@@ -9,3 +16,6 @@ Vous êtes connecté, {{ user.username }} !
 {% else %}
 Vous êtes bien déconnecté !
 {% endif %}
+
+{% endblock %}
+

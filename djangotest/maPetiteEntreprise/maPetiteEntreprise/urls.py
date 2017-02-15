@@ -35,4 +35,6 @@ urlpatterns = [
     url(r'^archives/','maPetiteEntreprise.views.recherche_archives', name='recherche'),
     url(r'^credits/','maPetiteEntreprise.views.credits', name='credits'),
     url(r'^liste_clients/','maPetiteEntreprise.views.liste_clients', name='liste_clients'),
+    url(r'^panier/','maPetiteEntreprise.views.get_cart', name='panier'),
+    url(r'^add_to_cart/(?P<product_id>\d+)/$','maPetiteEntreprise.views.add_to_cart', name='add_to_cart'),
 ]

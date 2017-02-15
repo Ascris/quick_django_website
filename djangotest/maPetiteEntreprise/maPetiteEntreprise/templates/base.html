@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
    <meta  charset="utf-8">
-     <link rel="stylesheet" type="text/css" href="{% static 'maPetiteEntreprise/style.css' %}" />	
+     <link rel="stylesheet" type="text/css" href="{% static 'maPetiteEntreprise/style.css' %}" />
    <title>{% block title %}HOME racine{% endblock %}</title>
 </head>	
 <body>
@@ -36,6 +36,7 @@
 
 {% block pages_menu %}
 	<div class="pages_menu">
+          <div>
 		<ul>
 		  <li><a href="{% url 'liste_clients' %}">Liste des clients</a></li>
 		  <li><a href="{% url 'liste_produits' %}">Liste des produits</a></li>
@@ -43,6 +44,12 @@
 		  <li><a href="{% url 'credits' %}">Credits</a></li>
 		  <li><a href="{% url 'recherche' %}">Recherche</a></li>
 		</ul>
+          </div>
+          {% if user.is_authenticated %}
+            <div class="panier">
+              <button><a href="{% url 'panier' %}">Panier</a></button>
+            </div>
+          {% endif %}
 	</div>
 {% endblock %}
 
@@ -52,7 +59,7 @@
 
 <div id="footer">
   {% block footer %}
-    Site de e-commerce
+    
   {% endblock %}
 </div>
 </body>
